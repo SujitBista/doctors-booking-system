@@ -16,6 +16,7 @@ A modern web-based appointment booking system for healthcare providers. Built wi
 ## 🏗️ Architecture
 
 ### Tech Stack
+
 - **Frontend**: React + TypeScript + Vite, Tailwind CSS, React Query
 - **Backend**: Node.js + TypeScript + Fastify
 - **Database**: PostgreSQL with Kysely/Prisma for type-safe queries
@@ -24,6 +25,7 @@ A modern web-based appointment booking system for healthcare providers. Built wi
 - **Deployment**: Docker containers on Fly.io/Render/Heroku
 
 ### Design Principles
+
 - **Functional Services**: Export named functions instead of service classes
 - **Security First**: Input validation, rate limiting, RBAC enforcement
 - **Reliability**: At-least-once email delivery, audit logging
@@ -32,21 +34,25 @@ A modern web-based appointment booking system for healthcare providers. Built wi
 ## 📋 MVP Features
 
 ### User Management
+
 - Patient registration and authentication
 - Doctor onboarding via admin invites
 - Role-based access control across all endpoints
 
 ### Appointment Booking
+
 - Search doctors by specialty, location, and availability
 - Real-time slot booking with conflict prevention
 - Cancellation policies with configurable windows
 
 ### Doctor Management
+
 - Profile creation with specialties and clinic information
 - Availability configuration with recurring schedules
 - Appointment dashboard with upcoming bookings
 
 ### Notifications
+
 - Booking confirmations and cancellations
 - Appointment reminders (24h and 2h before)
 - Reliable delivery via outbox pattern
@@ -54,6 +60,7 @@ A modern web-based appointment booking system for healthcare providers. Built wi
 ## 🗄️ Database Schema
 
 Key entities:
+
 - `users` - Authentication and role management
 - `doctors` / `patients` - User profiles and specializations
 - `availability_slots` - Generated bookable time slots
@@ -64,34 +71,40 @@ Key entities:
 ## 🚦 API Endpoints
 
 ### Authentication
+
 - `POST /api/v1/auth/register` - User registration
 - `POST /api/v1/auth/login` - User login
 - `POST /api/v1/auth/refresh` - Token refresh
 - `POST /api/v1/auth/logout` - User logout
 
 ### Doctors
+
 - `GET /api/v1/doctors` - Search and list doctors
 - `GET /api/v1/doctors/:id` - Doctor profile details
 - `GET /api/v1/doctors/:id/availability` - Available time slots
 
 ### Appointments
+
 - `POST /api/v1/appointments` - Book appointment
 - `GET /api/v1/appointments/:id` - Appointment details
 - `DELETE /api/v1/appointments/:id` - Cancel appointment
 - `GET /api/v1/me/appointments` - User's appointments
 
 ### Reviews
+
 - `POST /api/v1/doctors/:id/reviews` - Submit review
 - `GET /api/v1/doctors/:id/reviews` - Doctor reviews
 
 ## 🏃‍♂️ Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - PostgreSQL 14+
 - Docker (optional)
 
 ### Development Setup
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/doctors-booking-system.git
@@ -112,6 +125,7 @@ npm run dev
 ```
 
 ### Environment Variables
+
 ```env
 DATABASE_URL=postgresql://user:password@localhost:5432/doctors_booking
 JWT_SECRET=your-jwt-secret
@@ -135,6 +149,7 @@ npm run test:coverage
 ## 📦 Deployment
 
 ### Docker
+
 ```bash
 # Build image
 docker build -t doctors-booking-system .
@@ -144,6 +159,7 @@ docker run -p 3000:3000 doctors-booking-system
 ```
 
 ### Production Checklist
+
 - [ ] Environment variables configured
 - [ ] Database migrations applied
 - [ ] SSL certificates installed
